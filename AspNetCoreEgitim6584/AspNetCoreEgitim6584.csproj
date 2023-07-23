@@ -11,7 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\MVC15ViewComponentUsing\Components\NewFolder1\" />
+    <Folder Include="Views\MVC15ViewComponentUsing\Components\NewFolder\" />
     <Folder Include="wwwroot\Img\" />
+    <Folder Include="wwwroot\NewFolder1\" />
+    <Folder Include="wwwroot\NewFolder2\" />
+    <Folder Include="wwwroot\NewFolder\" />
   </ItemGroup>
 
 </Project>
