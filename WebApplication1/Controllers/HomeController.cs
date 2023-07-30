@@ -25,7 +25,7 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-
+        [Route("iletişim")]// qarama çubuğundan iletişim yazınca aşağıdaki action çalışsın
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

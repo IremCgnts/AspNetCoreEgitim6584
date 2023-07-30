@@ -1,14 +1,14 @@
 ﻿using AspNetCoreEgitim6584.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using WebApplication1.Models;
 
 namespace WebApplication1.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"), Authorize]
     public class ProductsController : Controller
     {
         private readonly DatabaseContext _databaseContext;
@@ -42,7 +42,7 @@ namespace WebApplication1.Areas.Admin.Controllers
         // POST: ProductsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Product collection,IFormFile? Image)
+        public ActionResult Create(Product collection, IFormFile? Image)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace WebApplication1.Areas.Admin.Controllers
 
                 }
 
-            
+
 
                 _databaseContext.Products.Add(collection);
                 _databaseContext.SaveChanges();
@@ -68,7 +68,7 @@ namespace WebApplication1.Areas.Admin.Controllers
         }
 
         // GET: ProductsController/Edit/5
-        public ActionResult Edit(int id )
+        public ActionResult Edit(int id)
         {
             ViewBag.CategoryId = new SelectList(_databaseContext.Categories.ToList(), "Id", "Name");
             var model = _databaseContext.Products.Find(id);

@@ -1,6 +1,4 @@
-﻿
-
-namespace WebApplication1.Models
+﻿namespace AspNetCoreWebApi.Models
 {
     public class Product
     {
