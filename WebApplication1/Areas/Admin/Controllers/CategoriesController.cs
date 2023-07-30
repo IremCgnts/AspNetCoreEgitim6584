@@ -1,18 +1,18 @@
 ﻿using AspNetCoreEgitim6584.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Models;
 
 namespace WebApplication1.Areas.Admin.Controllers
 {
-    [Area("Admin"),Authorize]
+    [Area("Admin"), Authorize]
     public class CategoriesController : Controller
     {
-        DatabaseContext databaseContext=new DatabaseContext();
+        DatabaseContext databaseContext = new DatabaseContext();
         // GET: CategoriesController
         public ActionResult Index()
         {
-            var model=databaseContext.Categories.ToList();
+            var model = databaseContext.Categories.ToList();
             return View(model);
         }
 
