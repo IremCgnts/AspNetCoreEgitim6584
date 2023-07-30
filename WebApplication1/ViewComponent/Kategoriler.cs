@@ -1,10 +1,10 @@
 ﻿using AspNetCoreEgitim6584.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.ViewComponents
 {
-    public class Kategoriler :ViewComponent
+    public class Kategoriler : ViewComponent
     {
         private readonly DatabaseContext _context;
         public Kategoriler(DatabaseContext context)

@@ -1,13 +1,14 @@
 ﻿using AspNetCoreEgitim6584.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace WebApplication1.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class LoginController : Controller
     {
-        private readonly DatabaseContext context;
+        private readonly DatabaseContext _context;
         public LoginController(DatabaseContext context)
         {
             _context = context;
@@ -17,11 +18,11 @@ namespace WebApplication1.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async IActionResult Index(string email, string password)
+        public async Task<IActionResult> IndexAsync(string email, string password)
         {
             try
             {
-                var kullanici= _context.Users.FirstOrDefault(u=>u.Email == email && u.Password==password);
+                var kullanici = _context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
                 if (kullanici != null)
                 {
 
@@ -44,10 +45,10 @@ namespace WebApplication1.Areas.Admin.Controllers
             }
             return View();
         }
-    }
-    public async Task<ActionResult>LogoutAsync()
-    {
-        await HttpContext.SignOutAsync;
-
+        public async Task<ActionResult> LogoutAsync()
+        {
+            await HttpContext.SignOutAsync();
+            return Redirect("/Admin");
+        }
     }
 }
